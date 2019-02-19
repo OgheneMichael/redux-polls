@@ -1,6 +1,7 @@
 import logger from "./logger";
 import thunk from "redux-thunk";
+import { applyMiddleware, compose } from "redux";
 
-import { applyMiddleware } from "redux";
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-export default applyMiddleware(thunk, logger);
+export default composeEnhancers(applyMiddleware(thunk, logger));
